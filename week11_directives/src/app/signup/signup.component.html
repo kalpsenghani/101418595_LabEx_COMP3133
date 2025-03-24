@@ -1,0 +1,40 @@
+<h1>Sign Up</h1>
+
+<form #signupForm="ngForm" (ngSubmit)="submitForm()">
+    <div>
+        <label for="firstName">FirstName</label>
+        <input 
+            type="text" 
+            id="firstName" 
+            name="firstName" 
+            placeholder="Enter first name"
+            [(ngModel)]="user.firstName"
+            required>
+    </div>
+
+    <div>
+        <label for="lastName">Last Name</label>
+        <input 
+            type="text" 
+            id="lastName" 
+            name="lastName" 
+            placeholder="Enter last name"
+            [(ngModel)]="user.lastName"
+            required>
+    </div>
+
+    <div>
+        <label for="email">Email : </label>
+        <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            placeholder="Enter Email Address"
+            [(ngModel)]="user.email"
+            required>
+    </div>
+
+    <button type="submit">Submit</button>
+</form>
+
+<h2>User : {{ user | json }} </h2>

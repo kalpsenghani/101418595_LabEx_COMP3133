@@ -1,0 +1,66 @@
+<h1>FormsModule</h1>
+<app-signup></app-signup>
+
+<h1>Week 11 - Directives & Two-Way Data Binding</h1>
+
+<div>
+  <h2>For directive </h2>
+
+  <h2>List of members</h2>
+
+  @for(person of members; track $index){
+    <h3>{{ $index + 1 }} -- {{person}}</h3>
+  }@empty {
+    <h3>No members found</h3>
+  }
+
+  <h2>List of documents and URLs</h2>
+
+  @for(doc of documents; track doc.title){
+    <a [href]="doc.url" target="_blank">
+      <p>{{ doc.title }}</p>
+    </a>
+  }@empty{
+    <h3>No documents and URLs found</h3>
+  }
+
+  <h2>List of members using NgFor</h2>
+
+  <div *ngIf="members.length > 0" >
+    <h3 *ngFor="let person of members">{{person}}</h3>
+  </div>
+
+  <div *ngIf="members.length == 0">
+    <h3>No members found</h3>
+  </div>
+  
+  <h2>List of members</h2>
+
+  @if(members.length > 0){
+    @for(person of members; track $index){
+      <h3>{{ $index + 1 }} -- {{person}}</h3>
+    }
+  }@else{
+    <h3>No members found</h3>
+  }
+
+  <!-- using @if @else directive check if num1 is even or odd -->
+
+
+  <h1>Switch directive</h1>
+
+  <h3>Letter Grade : {{letterGrade}}</h3>
+
+  @switch(letterGrade){
+    @case ('A') { <h3>Percentage Range : 90% - 100% </h3>}
+    @case ('B') { <h3>Percentage Range : 80% - 89% </h3>}
+    @case ('C') { <h3>Percentage Range : 70% - 79% </h3>}
+    @case ('D') { <h3>Percentage Range : 60% - 69% </h3>}
+    @case ('F') { <h3>Percentage Range : 0% - 60% </h3>}
+    @default { <h3>Invalid Grade</h3>}
+  }
+
+  <!-- combine the similar action for different values -->
+   <!-- @case ('a', 'e', 'i', 'o', 'u') { <h3>Letter is a vowel</h3>} -->
+
+</div>
